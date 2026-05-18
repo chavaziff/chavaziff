@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chava Ziff — Marketing &amp; Brand Transformation Executive</title>
+<meta name="description" content="Chava Ziff — Marketing &amp; Brand Transformation Executive. Building brands in regulated, complexity-heavy categories." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  /* ── TOKENS ───────────────────────────────────────── */
+  :root {
+    --cream:      #FAF7F5;
+    --cream-2:    #F4EFEB;
+    --blush:      #E2CECA;
+    --blush-soft: #EDDFDB;
+    --near-black: #1A1A1A;
+    --stone:      #8F8F8F;
+    --stone-soft: #BFB6B2;
+    --teal:       #3D7A74;
+    --teal-tint:  rgba(61, 122, 116, 0.08);
+    --max-w:      1160px;
+    --pad-x:      80px;
+    --pad-y:      130px;
+  }
+
+  /* ── RESET ────────────────────────────────────────── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--near-black);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  ::selection { background: var(--teal); color: var(--cream); }
+
+  /* ── TYPE HELPERS ─────────────────────────────────── */
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 400;
+  }
+  .label-teal { color: var(--teal); }
+  .num-tab { font-feature-settings: "lnum" 1, "tnum" 1; }
+
+  .wrap { max-width: var(--max-w); margin: 0 auto; }
+  section { padding: var(--pad-y) var(--pad-x); position: relative; }
+
+  /* ── REVEAL ON SCROLL ─────────────────────────────── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 1.1s cubic-bezier(.2,.6,.2,1), transform 1.1s cubic-bezier(.2,.6,.2,1); }
+  .reveal.is-in { opacity: 1; transform: none; }
+  .reveal[data-stagger="1"] { transition-delay: .08s; }
+  .reveal[data-stagger="2"] { transition-delay: .16s; }
+  .reveal[data-stagger="3"] { transition-delay: .24s; }
+  .reveal[data-stagger="4"] { transition-delay: .32s; }
+  body.no-motion .reveal { opacity: 1; transform: none; transition: none; }
+  body.no-motion .circle { animation: none !important; }
+
+  /* ── NAV ──────────────────────────────────────────── */
+  nav.site {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 20px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 247, 245, 0.82);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    border-bottom: 1px solid rgba(226, 206, 202, 0.45);
+    transition: padding .35s ease, background .35s ease, border-color .35s ease;
+  }
+  nav.site.scrolled {
+    padding: 14px 56px;
+    background: rgba(250, 247, 245, 0.94);
+    border-bottom-color: rgba(226, 206, 202, 0.8);
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--near-black);
+    letter-spacing: 0.005em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .nav-links a {
+    position: relative;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 400;
+    transition: color .25s ease;
+  }
+  .nav-links a:hover { color: var(--near-black); }
+  .nav-links a.active { color: var(--near-black); }
+  .nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -8px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  /* ── CIRCLE ELEMENTS ──────────────────────────────── */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--blush);
+    opacity: 0.58;
+    pointer-events: none;
+    will-change: transform;
+  }
+  @keyframes drift-a {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-18px, 22px); }
+  }
+  @keyframes drift-b {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(20px, -16px); }
+  }
+  .circle.drift-a { animation: drift-a 22s ease-in-out infinite; }
+  .circle.drift-b { animation: drift-b 26s ease-in-out infinite; }
+
+  /* ── HERO ─────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 80px 100px;
+    overflow: hidden;
+  }
+  .c-hero-tr { width: 720px; height: 720px; top: -260px; right: -180px; }
+  .c-hero-bl { width: 580px; height: 580px; bottom: -200px; left: -150px; }
+  .hero-inner { position: relative; z-index: 1; max-width: 860px; }
+  .hero-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 46px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 400;
+  }
+  .hero-mark::before, .hero-mark::after {
+    content: "";
+    width: 28px; height: 1px;
+    background: var(--stone-soft);
+    display: inline-block;
+  }
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7.6vw, 104px);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.012em;
+    color: var(--near-black);
+    margin-bottom: 44px;
+    text-wrap: balance;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--teal);
+    font-weight: 300;
+  }
+  .hero-descriptor {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--near-black);
+    max-width: 540px;
+    margin: 0 auto 64px;
+    line-height: 1.7;
+    font-weight: 300;
+    text-wrap: pretty;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--near-black);
+    font-weight: 400;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--near-black);
+    transition: color .25s ease, border-color .25s ease, gap .25s ease;
+  }
+  .cta:hover { color: var(--teal); border-color: var(--teal); gap: 18px; }
+  .cta .arr { font-size: 12px; }
+
+  /* ── ABOUT ────────────────────────────────────────── */
+  #about { padding: 130px 80px 120px; border-top: 1px solid var(--blush); }
+  .about-grid {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 96px;
+    align-items: start;
+  }
+  .about-photo {
+    aspect-ratio: 3/4;
+    background:
+      url("assets/headshot.jpg") center top/cover no-repeat,
+      var(--blush-soft);
+    position: relative;
+  }
+  .about-content { padding-top: 4px; }
+  .about-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 22px 0 36px;
+    text-wrap: balance;
+  }
+  .about-headline em { font-style: italic; color: var(--teal); }
+  .about-body {
+    font-size: 15.5px;
+    line-height: 1.85;
+    font-weight: 300;
+    color: var(--near-black);
+    margin-bottom: 22px;
+    text-wrap: pretty;
+  }
+  .brands-block {
+    margin-top: 52px;
+    padding-top: 38px;
+    border-top: 1px solid var(--blush);
+  }
+  .brands-list {
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 2.2;
+    font-weight: 300;
+    margin-top: 14px;
+  }
+
+  /* ── CASE STUDIES ─────────────────────────────────── */
+  .case-study {
+    padding: 130px 80px;
+    border-top: 1px solid var(--blush);
+    position: relative;
+  }
+  .case-study.tinted { background: rgba(226, 206, 202, 0.13); border-top-color: transparent; }
+  .case-inner { max-width: var(--max-w); margin: 0 auto; }
+
+  .case-id {
+    margin-bottom: 56px;
+  }
+  .case-id-text .label + .label { margin-top: 6px; }
+
+  .case-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5.4vw, 72px);
+    font-weight: 300;
+    line-height: 1.06;
+    letter-spacing: -0.012em;
+    max-width: 940px;
+    margin-bottom: 80px;
+    text-wrap: balance;
+  }
+
+  .case-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+  }
+
+  .block-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 400;
+    margin-bottom: 18px;
+  }
+  .block-body {
+    font-size: 15.5px;
+    line-height: 1.85;
+    font-weight: 300;
+  }
+  .block-body + .block-body { margin-top: 18px; }
+  .block-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .insight-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.35;
+    text-wrap: pretty;
+  }
+
+  /* shifts */
+  .shift-row {
+    font-size: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--blush);
+    display: grid;
+    grid-template-columns: 1fr 22px 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+  .shift-row:first-of-type { border-top: 1px solid var(--blush); }
+  .arrow-teal { color: var(--teal); font-size: 14px; justify-self: center; }
+  .shift-from { color: var(--stone); }
+
+  /* partnership block */
+  .partner-with-image {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 28px;
+  }
+  .partner-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 30px 60px -30px rgba(26, 26, 26, 0.35);
+  }
+  .partner-cap {
+    margin-top: 14px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 400;
+  }
+  .partner-block {
+    padding: 32px 36px;
+    border-left: 2px solid var(--teal);
+    background: var(--teal-tint);
+    margin: 0;
+  }
+  .partner-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--teal);
+  }
+  .partner-body {
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* brand evolution */
+  .evolution-block { margin: 80px 0 0; }
+  .evolution-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 36px;
+  }
+  .evolution-card { display: flex; flex-direction: column; gap: 14px; }
+  .evolution-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 500;
+  }
+  .evolution-tag .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--stone-soft);
+    display: inline-block;
+  }
+  .evolution-tag.is-after { color: var(--teal); }
+  .evolution-tag.is-after .dot { background: var(--teal); }
+  .evolution-img {
+    aspect-ratio: 16/9;
+    background: var(--blush-soft);
+    overflow: hidden;
+    border: 1px solid var(--blush);
+  }
+  .evolution-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .evolution-cap {
+    font-size: 13px;
+    color: var(--stone);
+    font-weight: 300;
+    line-height: 1.65;
+    margin-top: 2px;
+  }
+  .evolution-system { margin-top: 36px; }
+  .evolution-system-img {
+    aspect-ratio: 16/8;
+    background: var(--cream-2);
+    overflow: hidden;
+    border: 1px solid var(--blush);
+  }
+  .evolution-system-img img { width: 100%; height: 100%; object-fit: contain; display: block; background: #FAF4EE; }
+  .evolution-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--blush);
+  }
+  .evo-pillar { display: flex; flex-direction: column; gap: 8px; }
+  .evo-pillar-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--near-black);
+    letter-spacing: 0.01em;
+  }
+  .evo-pillar-body {
+    font-size: 13px;
+    color: var(--stone);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  @media (max-width: 900px) {
+    .evolution-row { grid-template-columns: 1fr; gap: 36px; }
+    .evolution-pillars { grid-template-columns: 1fr 1fr; gap: 24px 18px; }
+  }
+
+  /* campaign visuals */
+  .campaign-block { margin: 80px 0 0; }
+  .campaign-stack {
+    margin-top: 44px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .cs-feature {
+    display: flex;
+    justify-content: center;
+    background: var(--blush-soft);
+  }
+  .cs-feature img {
+    max-width: 780px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .cs-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .cs-pair > * {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: var(--blush-soft);
+  }
+  .campaign-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 14px;
+    margin-top: 44px;
+    margin-bottom: 14px;
+  }
+  .campaign-grid .img-tall { aspect-ratio: 4/5; }
+  .campaign-grid .img-tall + .col {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+  }
+  .img-ph {
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(26,26,26,0.045) 0 1px,
+        transparent 1px 14px
+      ),
+      var(--blush-soft);
+    display: flex;
+    align-items: flex-end;
+    padding: 18px 20px;
+    color: var(--stone);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .img-ph.dark {
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(250,247,245,0.035) 0 1px,
+        transparent 1px 14px
+      ),
+      #232323;
+    color: #777;
+  }
+  .img-wide { aspect-ratio: 16/7; }
+  .img-square { aspect-ratio: 1/1; }
+
+  .video-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .video-row.lpl { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .video-thumb {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--near-black);
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    text-align: left;
+  }
+  .video-thumb > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.78);
+    transition: filter .35s ease, transform .8s ease;
+    display: block;
+  }
+  .video-thumb:hover > img { filter: brightness(0.92); transform: scale(1.02); }
+  .video-thumb .vt-grad {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+  }
+  .video-thumb .vt-play {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: rgba(250, 247, 245, 0.92);
+    color: var(--near-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding-left: 4px;
+    transition: background .25s ease, color .25s ease, transform .35s ease;
+  }
+  .video-thumb:hover .vt-play { background: var(--teal); color: var(--cream); transform: translate(-50%, -50%) scale(1.06); }
+  .video-thumb .vt-label {
+    position: absolute;
+    left: 20px; bottom: 18px;
+    color: var(--cream);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .video-thumb.playing > img,
+  .video-thumb.playing > .vt-grad,
+  .video-thumb.playing > .vt-play,
+  .video-thumb.playing > .vt-label { display: none; }
+  .video-thumb.playing iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+  /* external link variant (iSpot) — no thumbnail, dark plate */
+  .video-thumb--ext { text-decoration: none; }
+  .video-thumb--ext .vt-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, #2a2a2a 0%, #1A1A1A 70%),
+      var(--near-black);
+  }
+  .video-thumb--ext .vt-bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(135deg, rgba(250,247,245,0.025) 0 1px, transparent 1px 18px);
+  }
+  .video-thumb .vt-ext {
+    margin-left: 8px;
+    color: var(--blush);
+    font-weight: 400;
+  }
+  .video-box {
+    background: #ECE6E2;
+    aspect-ratio: 16/9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    cursor: pointer;
+    transition: background .3s ease, transform .3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .video-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(26,26,26,0.04) 0 1px,
+        transparent 1px 18px
+      );
+  }
+  .video-box:hover { background: #E5DCD7; }
+  .video-box:hover .play-icon { background: var(--near-black); color: var(--cream); border-color: var(--near-black); }
+  .video-box-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 400;
+    position: relative;
+  }
+  .play-icon {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--stone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--stone);
+    font-size: 11px;
+    padding-left: 3px;
+    position: relative;
+    transition: background .3s ease, color .3s ease, border-color .3s ease;
+  }
+
+  /* results band */
+  .results-band {
+    border-top: 1px solid var(--blush);
+    border-bottom: 1px solid var(--blush);
+    padding: 64px 0 60px;
+    margin: 84px 0 0;
+  }
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .result-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -0.012em;
+    font-feature-settings: "lnum" 1;
+  }
+  .result-num.sm { font-size: 46px; }
+  .result-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .result-context {
+    font-size: 13px;
+    color: var(--stone);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+  .award-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid var(--blush);
+    padding: 12px 22px;
+    margin-top: 36px;
+  }
+  .award-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+  .award-text {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 400;
+  }
+
+  /* optimizations within case study */
+  .opt-section {
+    border-top: 1px solid var(--blush);
+    padding-top: 72px;
+    margin-top: 84px;
+  }
+  .opt-section .label { margin-bottom: 36px; }
+  .opt-item {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 40px;
+    padding: 38px 0;
+    border-bottom: 1px solid rgba(226, 206, 202, 0.65);
+    align-items: start;
+  }
+  .opt-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .opt-lbl {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .opt-body {
+    font-size: 15.5px;
+    line-height: 1.85;
+    font-weight: 300;
+    text-wrap: pretty;
+  }
+
+  /* ── IMPACT WALL ──────────────────────────────────── */
+  #impact {
+    padding: 140px 80px;
+    background: var(--near-black);
+    color: var(--cream);
+    overflow: hidden;
+  }
+  #impact .c-tr {
+    width: 660px; height: 660px;
+    background: rgba(226, 206, 202, 0.065);
+    top: -200px; right: -160px;
+    opacity: 1;
+  }
+  #impact .c-bl {
+    width: 500px; height: 500px;
+    background: rgba(226, 206, 202, 0.045);
+    bottom: -160px; left: -120px;
+    opacity: 1;
+  }
+  .impact-inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
+  .impact-eyebrow { color: var(--stone); margin-bottom: 18px; }
+  .impact-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 90px;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 64px 44px;
+  }
+  .impact-stat .impact-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 76px;
+    font-weight: 300;
+    color: var(--blush);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -0.012em;
+    font-feature-settings: "lnum" 1;
+  }
+  .impact-lbl {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #6B6663;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .impact-ctx {
+    font-size: 13px;
+    color: #807A77;
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  /* ── M&A FRAMEWORK ────────────────────────────────── */
+  #governance {
+    padding: 140px 80px;
+    border-top: 1px solid var(--blush);
+  }
+  .gov-inner { max-width: var(--max-w); margin: 0 auto; }
+  .gov-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    margin-bottom: 72px;
+    align-items: start;
+  }
+  .gov-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    font-weight: 300;
+    line-height: 1.08;
+    margin-top: 24px;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  .gov-body {
+    font-size: 15.5px;
+    line-height: 1.85;
+    font-weight: 300;
+    padding-top: 18px;
+  }
+  .gov-body + .gov-body { margin-top: 18px; padding-top: 0; }
+  .gov-proof {
+    font-size: 13px;
+    color: var(--teal);
+    font-style: italic;
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--blush);
+    line-height: 1.65;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 64px;
+  }
+  .chip {
+    padding: 10px 18px;
+    border: 1px solid var(--near-black);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--near-black);
+    font-weight: 400;
+    transition: background .25s ease, color .25s ease;
+  }
+  .chip:hover { background: var(--near-black); color: var(--cream); }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 72px;
+  }
+  .matrix thead th {
+    background: var(--near-black);
+    color: var(--cream);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 18px 24px;
+    text-align: left;
+  }
+  .matrix thead th:first-child { width: 38%; }
+  .matrix tbody td {
+    padding: 22px 24px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--blush);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+  .matrix tbody tr:nth-child(even) td { background: rgba(226, 206, 202, 0.20); }
+  .dim-name {
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .dim-q {
+    font-size: 12.5px;
+    color: var(--stone);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .risk-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 72px;
+  }
+  .risk-tier { padding: 30px 26px; }
+  .rt-minor    { background: rgba(61,122,116,0.08); }
+  .rt-moderate { background: rgba(61,122,116,0.18); }
+  .rt-major    { background: rgba(61,122,116,0.35); }
+  .rt-critical { background: var(--teal); color: var(--cream); }
+
+  .rt-label {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--near-black);
+  }
+  .rt-critical .rt-label { color: var(--cream); }
+  .rt-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -0.012em;
+  }
+  .rt-critical .rt-score { color: var(--cream); }
+  .rt-decision { font-size: 13px; font-weight: 300; line-height: 1.55; }
+  .rt-critical .rt-decision { color: var(--cream); }
+
+  .process-flow {
+    display: grid;
+    grid-template-columns: 1fr 32px 1fr 32px 1fr;
+    align-items: stretch;
+    margin-bottom: 52px;
+  }
+  .process-step {
+    background: var(--blush);
+    padding: 40px 34px;
+  }
+  .ps-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.012em;
+  }
+  .ps-label {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 18px;
+  }
+  .ps-body { font-size: 13px; font-weight: 300; line-height: 1.7; }
+  .process-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--teal);
+  }
+  .gov-footnote {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--stone);
+    line-height: 1.65;
+    padding-top: 36px;
+    border-top: 1px solid var(--blush);
+    max-width: 880px;
+  }
+
+  /* ── HOW I WORK ───────────────────────────────────── */
+  #how-i-work {
+    padding: 140px 80px;
+    background: var(--blush);
+  }
+  .how-inner { max-width: var(--max-w); margin: 0 auto; }
+  .how-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(46px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1.02;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  .how-sub {
+    font-size: 17px;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 80px;
+  }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .how-step {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 28px;
+    padding: 38px 0;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.14);
+    align-items: start;
+  }
+  .how-step:nth-child(odd)  { padding-right: 60px; }
+  .how-step:nth-child(even) {
+    padding-left: 60px;
+    border-left: 1px solid rgba(26, 26, 26, 0.14);
+  }
+  .step-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    font-weight: 300;
+    color: var(--near-black);
+    opacity: 0.32;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .step-body { font-size: 15.5px; line-height: 1.8; font-weight: 300; padding-top: 6px; }
+  .how-result {
+    margin-top: 90px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── MY OPTIMIZATIONS ─────────────────────────────── */
+  #optimizations {
+    padding: 140px 80px;
+    border-top: 1px solid var(--blush);
+  }
+  .opt-page-inner { max-width: var(--max-w); margin: 0 auto; }
+  .opt-page-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 300;
+    margin-top: 22px;
+    margin-bottom: 18px;
+    letter-spacing: -0.012em;
+    line-height: 1.05;
+  }
+  .opt-page-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--stone);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 80px;
+  }
+  .opt-page-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 56px;
+    padding: 56px 0;
+    border-top: 1px solid var(--blush);
+    align-items: start;
+  }
+  .opt-page-row:last-child { border-bottom: 1px solid var(--blush); }
+  .opr-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 84px;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    letter-spacing: -0.012em;
+  }
+  .opr-content { padding-top: 8px; }
+  .opr-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .opr-body { font-size: 16px; line-height: 1.85; font-weight: 300; text-wrap: pretty; }
+
+  /* ── THE THINKING ─────────────────────────────────── */
+  #thinking { padding: 140px 80px; border-top: 1px solid var(--blush); }
+  .think-inner { max-width: var(--max-w); margin: 0 auto; }
+  .think-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    align-items: center;
+    margin-bottom: 96px;
+  }
+  .think-approach {
+    border-top: 1px solid var(--blush);
+    padding-top: 56px;
+    margin-bottom: 8px;
+  }
+  .think-approach-lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1.35;
+    color: var(--near-black);
+    letter-spacing: -0.008em;
+    max-width: 880px;
+    margin-bottom: 18px;
+    text-wrap: balance;
+  }
+  .think-handoff {
+    margin-top: 96px;
+    padding-top: 64px;
+    border-top: 1px solid var(--blush);
+    text-align: center;
+  }
+  .think-handoff-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 400;
+    margin-bottom: 22px;
+  }
+  .think-handoff-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+    color: var(--near-black);
+    letter-spacing: -0.012em;
+    margin: 0 auto 36px;
+    max-width: 760px;
+    text-wrap: balance;
+  }
+  .think-handoff-line em { color: var(--teal); font-style: italic; }
+  .think-handoff-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--near-black);
+    font-weight: 400;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--near-black);
+    transition: color .25s ease, border-color .25s ease, gap .25s ease;
+  }
+  .think-handoff-cta:hover { color: var(--teal); border-color: var(--teal); gap: 18px; }
+  .think-handoff-cta .arr { font-size: 12px; }
+  .think-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    font-weight: 300;
+    line-height: 1.06;
+    margin: 22px 0 30px;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  .think-body {
+    font-size: 16px;
+    line-height: 1.85;
+    font-weight: 300;
+    margin-bottom: 22px;
+    text-wrap: pretty;
+  }
+  .think-pullquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.35;
+    color: var(--teal);
+    border-left: 2px solid var(--teal);
+    padding-left: 32px;
+    text-wrap: balance;
+  }
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 36px;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 4px;
+    font-weight: 400;
+    transition: gap .25s ease;
+  }
+  .read-more:hover { gap: 14px; }
+  .article-cards { margin-top: 56px; display: flex; flex-direction: column; gap: 24px; }
+  .article-card {
+    border-top: 1px solid var(--blush);
+    padding-top: 22px;
+    cursor: pointer;
+    transition: padding-left .25s ease;
+  }
+  .article-card:hover { padding-left: 8px; }
+  .article-card .label { margin-bottom: 10px; }
+  .article-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--near-black);
+  }
+
+  /* ── RECOMMENDATIONS ──────────────────────────────── */
+  #recommendations {
+    padding: 140px 80px;
+    background: var(--near-black);
+    color: var(--cream);
+    overflow: hidden;
+  }
+  #recommendations .c-br {
+    width: 540px; height: 540px;
+    background: rgba(226,206,202,0.07);
+    bottom: -160px; right: -120px;
+    opacity: 1;
+  }
+  #recommendations .c-tl {
+    width: 380px; height: 380px;
+    background: rgba(226,206,202,0.04);
+    top: -120px; left: -100px;
+    opacity: 1;
+  }
+  .reco-inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
+  .reco-eyebrow { color: var(--stone); margin-bottom: 18px; }
+  .reco-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 80px;
+    letter-spacing: -0.012em;
+  }
+  .reco-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 56px;
+  }
+  .reco-grid.two {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    max-width: 980px;
+  }
+  .reco-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.55;
+    margin-bottom: 32px;
+    text-wrap: pretty;
+  }
+  .reco-quote::before { content: "\201C"; color: var(--blush); margin-right: 2px; }
+  .reco-quote::after  { content: "\201D"; color: var(--blush); margin-left: 2px; }
+  .reco-attr {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush);
+    font-weight: 400;
+    line-height: 1.9;
+    padding-top: 20px;
+    border-top: 1px solid rgba(226, 206, 202, 0.2);
+  }
+  .reco-attr .stone { color: #807A77; }
+
+  /* ── CONTACT ──────────────────────────────────────── */
+  #contact {
+    padding: 180px 80px 140px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--blush);
+  }
+  #contact .c-top {
+    width: 600px; height: 600px;
+    top: -240px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.45;
+  }
+  .contact-inner { position: relative; z-index: 1; }
+  .contact-eyebrow {
+    color: var(--stone);
+    margin-bottom: 36px;
+  }
+  .contact-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 8.5vw, 104px);
+    font-weight: 300;
+    line-height: 0.98;
+    margin-bottom: 56px;
+    letter-spacing: -0.014em;
+  }
+  .contact-headline em { font-style: italic; color: var(--teal); }
+  .contact-email {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 22px;
+    transition: opacity .2s, letter-spacing .25s;
+    letter-spacing: 0.005em;
+  }
+  .contact-email:hover { opacity: 0.75; letter-spacing: 0.02em; }
+  .contact-li {
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--stone);
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 3px;
+    transition: color .25s ease, border-color .25s ease;
+  }
+  .contact-li:hover { color: var(--near-black); border-bottom-color: var(--near-black); }
+
+  /* ── FOOTER ───────────────────────────────────────── */
+  footer.site {
+    padding: 30px 56px;
+    border-top: 1px solid var(--blush);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--stone);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .footer-copy {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone);
+    white-space: nowrap;
+  }
+
+  /* ── SECTION MARKER (left-side roman/index)──────── */
+  .section-marker {
+    position: absolute;
+    top: 130px;
+    left: 56px;
+    font-size: 9px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 400;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  #impact .section-marker, #recommendations .section-marker { color: #5A5552; }
+
+  /* ── MOBILE ───────────────────────────────────────── */
+  @media (max-width: 900px) {
+    :root { --pad-x: 28px; --pad-y: 90px; }
+    nav.site { padding: 18px 28px; }
+    nav.site.scrolled { padding: 14px 28px; }
+    .nav-links { display: none; }
+    section { padding: var(--pad-y) var(--pad-x) !important; }
+    #how-i-work, #thinking, #impact, #recommendations, #contact, #about, .case-study { padding: var(--pad-y) var(--pad-x) !important; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-photo { max-width: 380px; }
+    .case-two-col, .think-grid { grid-template-columns: 1fr; gap: 48px; }
+    .case-id { grid-template-columns: 80px 1fr; gap: 20px; }
+    .case-num { font-size: 64px; }
+    .results-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+    .impact-grid { grid-template-columns: repeat(2, 1fr); gap: 44px 24px; }
+    .video-row { grid-template-columns: 1fr; }
+    .video-row.lpl { grid-template-columns: 1fr; }
+    .campaign-grid { grid-template-columns: 1fr; }
+    .campaign-grid .img-tall + .col { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+    .cs-pair { grid-template-columns: 1fr; }
+    .risk-row { grid-template-columns: 1fr 1fr; }
+    .process-flow { grid-template-columns: 1fr; gap: 8px; }
+    .process-arrow { transform: rotate(90deg); padding: 6px 0; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .how-step:nth-child(odd)  { padding-right: 0; }
+    .how-step:nth-child(even) { padding-left: 0; border-left: 0; }
+    .partner-with-image { grid-template-columns: 1fr; gap: 28px; }
+    .partner-cover img { max-width: 320px; }
+    .reco-grid, .reco-grid.two { grid-template-columns: 1fr; gap: 40px; }
+    .opt-page-row { grid-template-columns: 70px 1fr; gap: 28px; padding: 40px 0; }
+    .opr-num { font-size: 56px; }
+    .section-marker { display: none; }
+    footer.site { padding: 28px; flex-direction: column; gap: 10px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav class="site" id="topnav">
+  <a href="#hero" class="nav-name">Chava Ziff</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#thinking">Thinking</a>
+    <a href="#work">Work</a>
+    <a href="#recommendations">Recommendations</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section id="hero" data-screen-label="01 Hero">
+  <div class="circle c-hero-tr drift-a"></div>
+  <div class="circle c-hero-bl drift-b"></div>
+
+  <div class="hero-inner">
+    <p class="hero-mark reveal">Chava Ziff &nbsp;·&nbsp; Marketing &amp; Brand Transformation Executive</p>
+
+    <h1 class="hero-headline reveal" data-stagger="1">
+      I build brands<br /><em>people believe in.</em>
+    </h1>
+
+    <p class="hero-descriptor reveal" data-stagger="2">Fortune 500 &nbsp;·&nbsp; Financial Services &nbsp;·&nbsp; CPG &nbsp;·&nbsp; Technology &nbsp;·&nbsp; Healthcare / Pharma</p>
+
+    <p class="hero-sub reveal" data-stagger="3">
+      I specialize in categories where complexity is the default and trust is never assumed. The job isn't to advertise. It's to reframe.
+    </p>
+
+    <a href="#work" class="cta reveal" data-stagger="4">See the work <span class="arr">↓</span></a>
+  </div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section id="about" data-screen-label="02 About">
+  <span class="section-marker">§ About</span>
+  <div class="about-grid">
+    <div class="about-photo reveal" aria-label="Headshot placeholder"></div>
+
+    <div class="about-content">
+      <p class="label reveal">About</p>
+      <h2 class="about-headline reveal" data-stagger="1">Making the<br /><em>complex human.</em></h2>
+
+      <p class="about-body reveal" data-stagger="2">
+        I build brands in categories where the product can't sell itself until the category is credible. The last eight years have been in financial services, retirement, and wealth management — industries where skepticism is baked in, regulation is constant, and the stakes of getting it wrong are real.
+      </p>
+      <p class="about-body reveal" data-stagger="2">
+        At LPL Financial and Transamerica, I led brand transformations that moved business metrics, not just perception scores. I've managed up to $20M in marketing budgets, built and led teams of 17, navigated three M&amp;A integrations, and launched a nationally recognized integrated campaign.
+      </p>
+      <p class="about-body reveal" data-stagger="3">
+        Before the client side, I spent a decade in agencies — BBDO New York, Droga5, TBWA — building the craft that makes the corporate work possible.
+      </p>
+
+      <div class="brands-block reveal" data-stagger="3">
+        <p class="label">Brands</p>
+        <p class="brands-list">
+          LPL Financial &nbsp;·&nbsp; Transamerica &nbsp;·&nbsp; Visa &nbsp;·&nbsp; HP &nbsp;·&nbsp; Pepsi &nbsp;·&nbsp; Mars &nbsp;·&nbsp; FedEx &nbsp;·&nbsp; Pfizer &nbsp;·&nbsp; Kraft &nbsp;·&nbsp; Nestle &nbsp;·&nbsp; Susan&nbsp;G.&nbsp;Komen
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ MY THINKING ════ -->
+<section id="thinking" data-screen-label="03 Thinking">
+  <span class="section-marker">§ Thinking</span>
+  <div class="think-inner">
+
+    <div class="think-grid">
+      <div>
+        <p class="label reveal">My Thinking</p>
+        <h2 class="think-headline reveal" data-stagger="1">The Trust Problem.</h2>
+        <p class="think-body reveal" data-stagger="2">
+          In regulated categories — financial services, insurance, retirement, healthcare — the product can't sell itself until the category is credible. Traditional brand-to-demand logic breaks down here. The audience isn't indifferent. They're skeptical, with good reason. Decades of predatory players have earned that skepticism.
+        </p>
+        <p class="think-body reveal" data-stagger="2">
+          The job isn't to advertise. It's to reframe. Educate before you persuade. Build category trust before brand trust. Win the intermediary before the consumer. These aren't tactics — they're the strategy.
+        </p>
+      </div>
+
+      <div>
+        <p class="think-pullquote reveal">"The job is not just to advertise. It is to reframe."</p>
+      </div>
+    </div>
+
+    <div class="think-approach reveal">
+      <p class="label" style="margin-bottom: 18px;">My Approach</p>
+      <p class="think-approach-lede">
+        Across agencies and brands — B2B, B2C, and B2B2C, regulated and not — the same five practices separate brand work that moves the business from brand work that just looks good. I build all five in from day one.
+      </p>
+    </div>
+
+    <div class="opt-page-row reveal">
+      <span class="opr-num num-tab">01</span>
+      <div class="opr-content">
+        <p class="opr-label">Start with audience excavation</p>
+        <p class="opr-body">Persona development and deep audience research come before the creative brief — not after. The job is to mine for the human truth that sits underneath the product need, and let that insight write the brief. When the audience truth is the input, the work has somewhere honest to land.</p>
+      </div>
+    </div>
+    <div class="opt-page-row reveal">
+      <span class="opr-num num-tab">02</span>
+      <div class="opr-content">
+        <p class="opr-label">Integrate brand-to-demand from day one</p>
+        <p class="opr-body">Measurement architecture gets built before launch, not retrofitted after. Brand investment without downstream attribution is a conversation you lose every budget cycle. Aligning spend, messaging, and measurement across the full customer journey from the start is what changes how the organization values brand work.</p>
+      </div>
+    </div>
+    <div class="opt-page-row reveal">
+      <span class="opr-num num-tab">03</span>
+      <div class="opr-content">
+        <p class="opr-label">Treat thought leadership as infrastructure</p>
+        <p class="opr-body">Paid media creates awareness. A thought leadership platform builds belief. They aren't the same thing, and they don't follow the same investment logic. An owned content and earned experience strategy runs in parallel with the campaign — because in skeptical categories, credibility is the asset, not reach.</p>
+      </div>
+    </div>
+    <div class="opt-page-row reveal">
+      <span class="opr-num num-tab">04</span>
+      <div class="opr-content">
+        <p class="opr-label">Build sales enablement in parallel</p>
+        <p class="opr-body">The field team gets its toolkit before the campaign drops — conversation guides, objection frameworks, talking points, training. Brand work earns attention; the people closest to the customer have to convert it. They need to be ready the day the ads run, not three weeks after.</p>
+      </div>
+    </div>
+    <div class="opt-page-row reveal">
+      <span class="opr-num num-tab">05</span>
+      <div class="opr-content">
+        <p class="opr-label">Pressure-test the message early</p>
+        <p class="opr-body">Messaging research happens before the brief is final, not mid-flight. The sharpest motivator for an audience is rarely the obvious one, and you don't want to discover it after the campaign is in market. Test the frame before you commit the budget.</p>
+      </div>
+    </div>
+
+    <div class="think-handoff reveal">
+      <p class="think-handoff-eyebrow">In Practice</p>
+      <p class="think-handoff-line">Two transformations where this approach moved the business.</p>
+      <a href="#work" class="think-handoff-cta">See the work <span class="arr">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CASE STUDY 01 ════ -->
+<div id="work"></div>
+<section class="case-study" data-screen-label="04 Case Study — LPL">
+  <span class="section-marker">§ Case Study 01</span>
+  <div class="case-inner">
+
+    <div class="case-id reveal">
+      <div class="case-id-text">
+        <p class="label label-teal">The Work</p>
+        <p class="label">LPL Financial &nbsp;·&nbsp; Brand Transformation</p>
+      </div>
+    </div>
+
+    <h2 class="case-headline reveal" data-stagger="1">Known to Advisors.<br />Invisible to Investors.</h2>
+
+    <div class="case-two-col">
+      <div class="reveal" data-stagger="1">
+        <p class="block-label">The Situation</p>
+        <p class="block-body">96% advisor awareness. 2% HNW investor unaided awareness. Same company.</p>
+        <p class="block-body">
+          LPL had earned deep trust in its B2B channel — the advisors knew them. But the high-net-worth investors those advisors were trying to reach? LPL was invisible. In wealth management, when a client doesn't recognize the name, it undermines the advisor's credibility and the firm's growth.
+        </p>
+      </div>
+      <div class="reveal" data-stagger="2">
+        <p class="block-label">The Strategic Shift</p>
+        <div class="shift-row">
+          <span class="shift-from">Selling products</span>
+          <span class="arrow-teal">→</span>
+          <span>Offering advice</span>
+        </div>
+        <div class="shift-row">
+          <span class="shift-from">Listing capabilities</span>
+          <span class="arrow-teal">→</span>
+          <span>Articulating what LPL enables</span>
+        </div>
+        <div style="margin-top: 40px;">
+          <p class="block-label">The Insight</p>
+          <p class="block-body">
+            LPL's audiences had bold ambitions in an industry full of obstacles. The brand's purpose: remove those obstacles and make possibility feel real — not aspirational.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Identity Transformation -->
+    <div class="evolution-block reveal">
+      <p class="block-label">Brand Strategy &amp; Visual Identity</p>
+      <p class="block-body" style="max-width: 760px;">
+        Before the campaign could land, the brand had to feel different. We rebuilt the visual identity from the ground up — moving LPL away from a generic financial-services template toward an editorial, human, distinctly-owned system. New typography. New color discipline. A pattern language tied directly to the strategy.
+      </p>
+
+      <div class="evolution-row">
+        <div class="evolution-card">
+          <span class="evolution-tag"><span class="dot"></span>Before &nbsp;·&nbsp; 2023</span>
+          <div class="evolution-img"><img src="assets/lpl-evolution-image1.jpg" alt="LPL Financial visual identity, before — bold orange and navy chevrons, condensed bold sans-serif, generic financial corporate stock photography." loading="lazy" /></div>
+          <p class="evolution-cap">High-contrast primary palette. Loud chevron pattern. Condensed sans headlines. Reads as functional financial corporate — not a brand investors would seek out.</p>
+        </div>
+        <div class="evolution-card">
+          <span class="evolution-tag is-after"><span class="dot"></span>After &nbsp;·&nbsp; 2024</span>
+          <div class="evolution-img"><img src="assets/lpl-evolution-image2.jpg" alt="LPL Financial visual identity, after — refined navy and terracotta system, Chronicle serif type, LL Brown sans secondary, more human photography, textured paper backgrounds." loading="lazy" /></div>
+          <p class="evolution-cap">Chronicle serif as the brand voice. LL Brown for clarity. Navy + terracotta + paper texture replace primary colors. Photography is observed, not posed.</p>
+        </div>
+      </div>
+
+      <div class="evolution-system">
+        <p class="label" style="margin-bottom: 18px;">The Pattern System &nbsp;·&nbsp; Four pillars of the brand strategy, made visible.</p>
+        <div class="evolution-system-img"><img src="assets/lpl-evolution-image3.jpg" alt="LPL Financial pattern system — four geometric patterns labeled Power, Strengthen, Amplify, Perpetuate, each in a different brand color." loading="lazy" /></div>
+        <div class="evolution-pillars">
+          <div class="evo-pillar">
+            <p class="evo-pillar-name">Power</p>
+            <p class="evo-pillar-body">The advisor's independence and conviction.</p>
+          </div>
+          <div class="evo-pillar">
+            <p class="evo-pillar-name">Strengthen</p>
+            <p class="evo-pillar-body">The advice relationship at the center.</p>
+          </div>
+          <div class="evo-pillar">
+            <p class="evo-pillar-name">Amplify</p>
+            <p class="evo-pillar-body">The reach of every practice we support.</p>
+          </div>
+          <div class="evo-pillar">
+            <p class="evo-pillar-name">Perpetuate</p>
+            <p class="evo-pillar-body">Outcomes that compound across generations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign -->
+    <div class="campaign-block reveal">
+      <p class="block-label">The Campaign &nbsp;·&nbsp; "What If You Could?"</p>
+      <p class="block-body" style="max-width: 760px;">
+        Spokesperson: Anna Kendrick. "More familiar than famous" — approachable enough not to distract from the message, credible enough to break through with a leaner media budget than legacy competitors.
+      </p>
+      <p class="label" style="margin-top: 32px; margin-bottom: 12px;">Channel Mix</p>
+      <p class="block-body" style="color: var(--stone);">
+        Linear TV &nbsp;·&nbsp; CTV &nbsp;·&nbsp; OOH &nbsp;·&nbsp; Print &nbsp;·&nbsp; Social &nbsp;·&nbsp; Online Video &nbsp;·&nbsp; Search
+      </p>
+
+      <div class="campaign-stack reveal">
+        <div class="cs-feature">
+          <img src="assets/lpl-print.jpg" alt="LPL Financial — Print ad: Anna Kendrick, “What if you could have the greener grass on your side?”" />
+        </div>
+        <div class="cs-feature">
+          <img src="assets/lpl-ooh.jpg" alt="LPL Financial — OOH billboard placement" />
+        </div>
+      </div>
+
+      <div class="video-row lpl reveal">
+        <button class="video-thumb" type="button" data-yt="tEbeOwISWEM" aria-label="Play: Grass TVC, 60 seconds">
+          <img src="https://i.ytimg.com/vi/tEbeOwISWEM/hqdefault.jpg" alt="" loading="lazy" />
+          <span class="vt-grad"></span>
+          <span class="vt-play">▶</span>
+          <span class="vt-label">"Grass" TVC · :60</span>
+        </button>
+        <button class="video-thumb" type="button" data-yt="i8kHgxALu50" aria-label="Play: More TVC, 30 seconds">
+          <img src="https://i.ytimg.com/vi/i8kHgxALu50/hqdefault.jpg" alt="" loading="lazy" />
+          <span class="vt-grad"></span>
+          <span class="vt-play">▶</span>
+          <span class="vt-label">"More" TVC · :30</span>
+        </button>
+        <button class="video-thumb" type="button" data-yt="MGL5qI8NldM" aria-label="Play: Brand Manifesto, 60 seconds">
+          <img src="https://i.ytimg.com/vi/MGL5qI8NldM/hqdefault.jpg" alt="" loading="lazy" />
+          <span class="vt-grad"></span>
+          <span class="vt-play">▶</span>
+          <span class="vt-label">Brand Manifesto · :60</span>
+        </button>
+        <button class="video-thumb" type="button" data-yt="QKxfVgII7q8" aria-label="Play: Behind the scenes">
+          <img src="https://i.ytimg.com/vi/QKxfVgII7q8/hqdefault.jpg" alt="" loading="lazy" />
+          <span class="vt-grad"></span>
+          <span class="vt-play">▶</span>
+          <span class="vt-label">Behind the Scenes</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results-band reveal">
+      <div class="results-grid">
+        <div>
+          <p class="result-num">+50%</p>
+          <p class="result-label">Aided Awareness</p>
+          <p class="result-context">Among HNW investors</p>
+        </div>
+        <div>
+          <p class="result-num">+27%</p>
+          <p class="result-label">Brand Favorability</p>
+          <p class="result-context">Across target audience</p>
+        </div>
+        <div>
+          <p class="result-num">+13%</p>
+          <p class="result-label">Lead Conversion</p>
+          <p class="result-context">Improvement in downstream pipeline</p>
+        </div>
+        <div>
+          <p class="result-num">+5%</p>
+          <p class="result-label">NPS Improvement</p>
+          <p class="result-context">"LPL's reputation aids my practice"</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ CASE STUDY 02 ════ -->
+<section class="case-study tinted" data-screen-label="05 Case Study — Transamerica">
+  <span class="section-marker">§ Case Study 02</span>
+  <div class="case-inner">
+
+    <div class="case-id reveal">
+      <div class="case-id-text">
+        <p class="label label-teal">The Work</p>
+        <p class="label">Transamerica &nbsp;·&nbsp; Brand Strategy &amp; Campaign &nbsp;·&nbsp; MIT AgeLab Partnership</p>
+      </div>
+    </div>
+
+    <h2 class="case-headline reveal" data-stagger="1">130 Years of Legacy.<br />Zero Emotional Connection.</h2>
+
+    <div class="case-two-col">
+      <div class="reveal" data-stagger="1">
+        <p class="block-label">The Situation</p>
+        <p class="block-body">
+          Advisors knew the Transamerica name. They had no emotional reason to care about it. Product perception scores were declining on every key driver of consideration. Known for insurance — invisible on retirement planning, investments, and everything else.
+        </p>
+      </div>
+      <div class="reveal" data-stagger="2">
+        <p class="block-label">The Opportunity</p>
+        <p class="block-body">
+          No brand in financial services had claimed the intersection of wealth and health. The category talked about money. We talked about what money enables: aging in place, an 8,000-day retirement, leaving something behind. The white space was open.
+        </p>
+        <div style="margin-top: 36px;">
+          <p class="block-label">The Insight</p>
+          <p class="insight-quote">Retirement isn't just a financial event. It's a life event.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partnership -->
+    <div class="reveal" style="margin-bottom: 80px;">
+      <p class="block-label">The Partnership</p>
+      <div class="partner-with-image">
+        <div class="partner-cover">
+          <img src="assets/transamerica-whitepaper.jpg" alt="Transamerica × MIT AgeLab — “Caregiving and the future of financial advice” whitepaper cover" />
+          <p class="partner-cap">Whitepaper · Caregiving and the future of financial advice</p>
+        </div>
+        <div class="partner-block">
+          <p class="partner-name">MIT AgeLab &nbsp;·&nbsp; Dr. Joseph Coughlin</p>
+          <p class="partner-body">
+            Author of <em>The Longevity Economy</em>. A multi-year thought leadership ecosystem — advisor CE events, proprietary whitepapers, a social video series, and a Caregiving Hub that changed how advisors opened retirement conversations. Advisory firms began requesting Dr. Coughlin for their own client events.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign -->
+    <div class="campaign-block reveal">
+      <p class="block-label">The Campaign &nbsp;·&nbsp; "Where Wealth Meets Health"</p>
+      <p class="block-body" style="color: var(--stone); margin-top: 8px;">
+        TVC &nbsp;·&nbsp; Social Video Series &nbsp;·&nbsp; Whitepapers &nbsp;·&nbsp; Advisor CE Events &nbsp;·&nbsp; Caregiving Hub
+      </p>
+
+      <div class="video-row lpl reveal" style="margin-top: 44px;">
+        <button class="video-thumb" type="button" data-yt="uzQuxNQGqwU" aria-label="Play: Transamerica Brand Manifesto">
+          <img src="https://i.ytimg.com/vi/uzQuxNQGqwU/hqdefault.jpg" alt="" loading="lazy" />
+          <span class="vt-grad"></span>
+          <span class="vt-play">▶</span>
+          <span class="vt-label">Brand Manifesto</span>
+        </button>
+        <a class="video-thumb video-thumb--ext" href="https://www.ispot.tv/share/waBe" target="_blank" rel="noopener" aria-label="Open: Money TVC, 30 seconds on iSpot">
+          <span class="vt-bg"></span>
+          <span class="vt-grad"></span>
+          <span class="vt-play">▶</span>
+          <span class="vt-label">"Money" TVC · :30 <span class="vt-ext">iSpot ↗</span></span>
+        </a>
+        <button class="video-thumb" type="button" data-yt="V30g28rkd1Y" aria-label="Play: 8,000 Days with Dr. Joseph Coughlin">
+          <img src="https://i.ytimg.com/vi/V30g28rkd1Y/hqdefault.jpg" alt="" loading="lazy" />
+          <span class="vt-grad"></span>
+          <span class="vt-play">▶</span>
+          <span class="vt-label">"8,000 Days" · Dr. Joe</span>
+        </button>
+        <button class="video-thumb" type="button" data-yt="jQ9-PkXpd1Q" aria-label="Play: Future is Female with Dr. Joseph Coughlin">
+          <img src="https://i.ytimg.com/vi/jQ9-PkXpd1Q/hqdefault.jpg" alt="" loading="lazy" />
+          <span class="vt-grad"></span>
+          <span class="vt-play">▶</span>
+          <span class="vt-label">"Future is Female" · Dr. Joe</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results-band reveal">
+      <div class="results-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div>
+          <p class="result-num sm">34% → 44%</p>
+          <p class="result-label">Brand Consideration</p>
+          <p class="result-context">Among aware audiences, year over year</p>
+        </div>
+        <div>
+          <p class="result-num">3×</p>
+          <p class="result-label">Category Growth</p>
+          <p class="result-context">Above category average</p>
+        </div>
+        <div>
+          <p class="result-num">+15%</p>
+          <p class="result-label">Aided Awareness</p>
+          <p class="result-context">Lift across target audience</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ RECOMMENDATIONS ════ -->
+<section id="recommendations" data-screen-label="06 Recommendations">
+  <div class="circle c-br drift-a"></div>
+  <div class="circle c-tl drift-b"></div>
+
+  <div class="reco-inner">
+    <p class="label reco-eyebrow reveal">What People Say</p>
+    <h2 class="reco-headline reveal" data-stagger="1">Recommendations.</h2>
+
+    <div class="reco-grid two">
+      <div class="reco-item reveal">
+        <p class="reco-quote">Chava is a seasoned leader who can flex altitude effortlessly between strategy and execution. I appreciated her passion for brand strategy — particularly in a regulated, complex industry. Chava's leadership style centers on culture-carrying while challenging the status quo. I experienced her as effective and well-received in the C-suite ranks while driving transformation and gaining alignment to her vision. What I enjoyed most about Chava was her optimism in the face of challenge — dedication to driving and creating change.</p>
+        <p class="reco-attr">John Hutto<br /><span class="stone">Marketing Leader · Chief Marketing Officer · Entrepreneur</span><br /><span class="stone">Managed Chava directly · Nov 2025</span></p>
+      </div>
+      <div class="reco-item reveal" data-stagger="1">
+        <p class="reco-quote">I had the privilege of working with Chava Ziff, and she is one of the most impactful leaders I've worked with. She invests deeply in her team's growth — creating opportunities, offering thoughtful coaching, and recognizing both big wins and quiet contributions. Chava is exceptional at cross-functional collaboration. She brought alignment to complex, long-stalled projects by building trust, gaining buy-in, and keeping teams focused on shared goals.</p>
+        <p class="reco-attr">Brittany Rothmen<br /><span class="stone">Vice President, Marketing</span><br /><span class="stone">LPL Financial · Reported to Chava · Nov 2025</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section id="contact" data-screen-label="07 Contact">
+  <div class="circle c-top drift-a"></div>
+  <div class="contact-inner">
+    <p class="label contact-eyebrow reveal">Contact</p>
+    <h2 class="contact-headline reveal" data-stagger="1">Let's <em>talk.</em></h2>
+    <a href="mailto:chavaziff@gmail.com" class="contact-email reveal" data-stagger="2">chavaziff@gmail.com</a>
+    <a href="https://linkedin.com/in/chavaziff" class="contact-li reveal" data-stagger="3" target="_blank" rel="noopener">linkedin.com/in/chavaziff ↗</a>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer class="site">
+  <span class="footer-name">Chava Ziff</span>
+  <span class="footer-copy">Marketing &amp; Brand Transformation Executive &nbsp;·&nbsp; chavaziff.com</span>
+</footer>
+
+<!-- ════ TWEAKS DEFAULTS ════ -->
+<script>
+  window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#3D7A74",
+    "motion": true,
+    "sectionMarkers": true
+  }/*EDITMODE-END*/;
+</script>
+
+<!-- ════ MOTION + NAV LOGIC ════ -->
+<script>
+(function () {
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '-40px 0px -40px 0px', threshold: 0.06 });
+
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Nav scroll state + active section
+  const nav = document.getElementById('topnav');
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+  const sectionIds = navLinks.map((a) => a.getAttribute('href').slice(1));
+  const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+  function onScroll() {
+    if (window.scrollY > 24) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+
+    const y = window.scrollY + 140;
+    let active = sections[0]?.id;
+    sections.forEach((s) => {
+      if (s && s.offsetTop <= y) active = s.id;
+    });
+    navLinks.forEach((a) => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + active);
+    });
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Apply initial tweak state
+  function applyTweaks(t) {
+    if (!t) return;
+    if (t.accent) {
+      document.documentElement.style.setProperty('--teal', t.accent);
+      // recompute tint
+      document.documentElement.style.setProperty('--teal-tint', hexA(t.accent, 0.08));
+    }
+    document.body.classList.toggle('no-motion', !t.motion);
+    document.documentElement.classList.toggle('hide-markers', !t.sectionMarkers);
+  }
+  function hexA(hex, a) {
+    const h = hex.replace('#','');
+    const r = parseInt(h.substring(0,2),16), g = parseInt(h.substring(2,4),16), b = parseInt(h.substring(4,6),16);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+  applyTweaks(window.TWEAK_DEFAULTS);
+  window.__applyTweaks = applyTweaks;
+
+  // Lite YouTube: click thumbnail → embed iframe with autoplay
+  document.querySelectorAll('.video-thumb').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.classList.contains('playing')) return;
+      const id = btn.dataset.yt;
+      if (!id) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.title = btn.getAttribute('aria-label') || 'YouTube video';
+      btn.appendChild(iframe);
+      btn.classList.add('playing');
+    });
+  });
+})();
+</script>
+
+<style>
+  html.hide-markers .section-marker { display: none; }
+</style>
+
+<!-- ════ TWEAKS PANEL ════ -->
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
+
+</body>
+</html>
