@@ -1,6 +1,0 @@
-name = "chavaziff"
-compatibility_date = "2025-05-01"
-
-[assets]
-directory = "./"
-not_found_handling = "404-page"
